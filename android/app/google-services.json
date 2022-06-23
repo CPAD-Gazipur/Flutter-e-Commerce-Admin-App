@@ -1,0 +1,98 @@
+{
+  "project_info": {
+    "project_number": "634546943551",
+    "project_id": "flutter-e-commerce-app-e6675",
+    "storage_bucket": "flutter-e-commerce-app-e6675.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:634546943551:android:610197f8f1f25d69ef6a8a",
+        "android_client_info": {
+          "package_name": "com.alaminkarno.flutter_e_commerce_backend"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "634546943551-e2ce90vqgislh6aedsg0gjlrl13eht15.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.alaminkarno.flutter_e_commerce_backend",
+            "certificate_hash": "cb2720aa45c39703b1c3e45cfdeafaeb65fb2ad0"
+          }
+        },
+        {
+          "client_id": "634546943551-03dmd25rklh8ojfgqlpcq1mrhpdi7qmk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAfpnM6RLXvmOPrEV6EgOspnB1oajkMMVA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "634546943551-03dmd25rklh8ojfgqlpcq1mrhpdi7qmk.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "634546943551-4uk1digjcl60rui3mn84lnev8ce51kql.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.alaminkarno.flutterEcommerceApp"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:634546943551:android:ca625dca51db46bdef6a8a",
+        "android_client_info": {
+          "package_name": "com.alaminkarno.flutter_ecommerce_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "634546943551-phs8vhmaejd27npiqfdh57ippp9ddi0p.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.alaminkarno.flutter_ecommerce_app",
+            "certificate_hash": "cb2720aa45c39703b1c3e45cfdeafaeb65fb2ad0"
+          }
+        },
+        {
+          "client_id": "634546943551-03dmd25rklh8ojfgqlpcq1mrhpdi7qmk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAfpnM6RLXvmOPrEV6EgOspnB1oajkMMVA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "634546943551-03dmd25rklh8ojfgqlpcq1mrhpdi7qmk.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "634546943551-4uk1digjcl60rui3mn84lnev8ce51kql.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.alaminkarno.flutterEcommerceApp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
