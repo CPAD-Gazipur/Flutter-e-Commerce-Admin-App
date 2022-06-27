@@ -1,8 +1,9 @@
 import 'dart:convert';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:equatable/equatable.dart';
 
 class Product extends Equatable {
-  final int id;
+  final String id;
   final String name;
   final String description;
   final String imageUrl;
@@ -38,7 +39,7 @@ class Product extends Equatable {
       ];
 
   Product copyWith(
-      {int? id,
+      {String? id,
       String? name,
       String? description,
       String? imageUrl,
@@ -74,30 +75,28 @@ class Product extends Equatable {
     };
   }
 
-  factory Product.toMap(Map<String, dynamic> map) {
+  factory Product.fromSnapshot(DocumentSnapshot snap) {
     return Product(
-      id: map['id'],
-      name: map['name'],
-      description: map['description'],
-      imageUrl: map['imageUrl'],
-      price: map['price'],
-      quantity: map['quantity'],
-      category: map['category'],
-      isRecommended: map['isRecommended'],
-      isPopular: map['isPopular'],
+      id: snap.id,
+      name: snap['name'],
+      description: snap['description'],
+      category: snap['category'],
+      imageUrl: snap['imageUrl'],
+      isRecommended: snap['isRecommended'],
+      isPopular: snap['isPopular'],
+      price: snap['price'],
+      quantity: snap['quantity'],
     );
   }
 
   String toJson() => json.encode(toMap());
-
-  factory Product.fromJson(String source) => Product.toMap(json.decode(source));
 
   @override
   bool get stringify => true;
 
   static List<Product> products = [
     Product(
-      id: 1,
+      id: '1',
       name: 'Product 1',
       description: 'Description 1',
       imageUrl: 'https://picsum.photos/id/1/200/300',
@@ -108,7 +107,7 @@ class Product extends Equatable {
       isPopular: true,
     ),
     Product(
-      id: 2,
+      id: '2',
       name: 'Product 2',
       description: 'Description 2',
       imageUrl: 'https://picsum.photos/id/2/200/300',
@@ -119,7 +118,7 @@ class Product extends Equatable {
       isPopular: false,
     ),
     Product(
-      id: 3,
+      id: '3',
       name: 'Product 3',
       description: 'Description 3',
       imageUrl: 'https://picsum.photos/id/3/200/300',
@@ -130,7 +129,7 @@ class Product extends Equatable {
       isPopular: false,
     ),
     Product(
-      id: 4,
+      id: '4',
       name: 'Product 4',
       description: 'Description 4',
       imageUrl: 'https://picsum.photos/id/4/200/300',
