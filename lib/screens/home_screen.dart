@@ -31,7 +31,22 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
             ),
-          )
+          ),
+          Container(
+            height: 150,
+            width: double.infinity,
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: InkWell(
+              onTap: () {
+                Get.to(() => const OrderScreen());
+              },
+              child: const Card(
+                child: Center(
+                  child: Text('Go To Orders'),
+                ),
+              ),
+            ),
+          ),
         ],
       ),
     );
