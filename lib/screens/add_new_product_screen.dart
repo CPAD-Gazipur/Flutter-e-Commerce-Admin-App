@@ -204,7 +204,7 @@ class AddNewProductScreen extends StatelessWidget {
                           isRecommended:
                               productController.newProduct['isRecommended'],
                           isPopular: productController.newProduct['isPopular'],
-                          price: productController.newProduct['price'],
+                          price: productController.newProduct['price'].toInt(),
                           quantity:
                               productController.newProduct['price'].toInt(),
                         ));

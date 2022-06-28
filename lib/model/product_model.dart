@@ -7,8 +7,8 @@ class Product extends Equatable {
   final String name;
   final String description;
   final String imageUrl;
-  double price;
-  int quantity;
+  dynamic price;
+  dynamic quantity;
   final String category;
   final bool isRecommended;
   final bool isPopular;
@@ -43,8 +43,8 @@ class Product extends Equatable {
       String? name,
       String? description,
       String? imageUrl,
-      double? price,
-      int? quantity,
+      dynamic price,
+      dynamic quantity,
       String? category,
       bool? isRecommended,
       bool? isPopular}) {

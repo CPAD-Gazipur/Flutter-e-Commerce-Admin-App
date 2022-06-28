@@ -1,9 +1,18 @@
 import 'package:get/get.dart';
 
 import '../model/model.dart';
+import '../services/database_service.dart';
 
 class ProductController extends GetxController {
-  List<Product> products = Product.products.obs;
+  final DatabaseService database = DatabaseService();
+
+  var products = <Product>[].obs;
+
+  @override
+  void onInit() {
+    products.bindStream(database.getProducts());
+    super.onInit();
+  }
 
   var newProduct = {}.obs;
 
@@ -12,13 +21,37 @@ class ProductController extends GetxController {
   get isRecommended => newProduct['isRecommended'];
   get isPopular => newProduct['isPopular'];
 
-  void updateProductPrice(int index, Product product, double value) {
+  void updateProductPrice(
+    int index,
+    Product product,
+    double value,
+  ) {
     product.price = value;
     products[index] = product;
   }
 
-  void updateProductQuantity(int index, Product product, int value) {
+  void saveNewProductPrice(
+    Product product,
+    String field,
+    double value,
+  ) {
+    database.updateField(product, field, value);
+  }
+
+  void updateProductQuantity(
+    int index,
+    Product product,
+    int value,
+  ) {
     product.quantity = value;
     products[index] = product;
+  }
+
+  void saveNewProductQuantity(
+    Product product,
+    String field,
+    int value,
+  ) {
+    database.updateField(product, field, value);
   }
 }
