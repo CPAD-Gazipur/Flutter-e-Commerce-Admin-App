@@ -34,4 +34,29 @@ class DatabaseService {
                 {debugPrint('Error: ${product.name} not found.')}
             });
   }
+
+  Stream<List<Order>> getOrders() {
+    return firebaseFirestore.collection('orders').snapshots().map((snapshot) {
+      return snapshot.docs.map((doc) => Order.fromSnapshot(doc)).toList();
+    });
+  }
+
+  Stream<List<Order>> getPendingOrders() {
+    return firebaseFirestore
+        .collection('orders')
+        .where('isDelivered', isEqualTo: false)
+        .where('isCancelled', isEqualTo: false)
+        .snapshots()
+        .map((snapshot) {
+      return snapshot.docs.map((doc) => Order.fromSnapshot(doc)).toList();
+    });
+  }
+
+  Future<void> updateOrder(Order order, String field, bool newValue) {
+    return firebaseFirestore
+        .collection('orders')
+        .where('id', isEqualTo: order.id)
+        .get()
+        .then((value) => value.docs.first.reference.update({field: newValue}));
+  }
 }

@@ -7,9 +7,9 @@ class Order extends Equatable {
   final int id;
   final int customerId;
   final List<String> productIds;
-  final double deliveryFee;
-  final double subtotal;
-  final double total;
+  final dynamic deliveryFee;
+  final dynamic subtotal;
+  final dynamic total;
   final bool isAccepted;
   final bool isDelivered;
   final bool isCancelled;
@@ -32,9 +32,9 @@ class Order extends Equatable {
     int? id,
     int? customerId,
     List<String>? productIds,
-    double? deliveryFee,
-    double? subtotal,
-    double? total,
+    dynamic deliveryFee,
+    dynamic subtotal,
+    dynamic total,
     bool? isAccepted,
     bool? isDelivered,
     bool? isCancelled,
