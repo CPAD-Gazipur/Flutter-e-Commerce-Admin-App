@@ -17,6 +17,14 @@ class AddNewProductScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    List<String> categories = [
+      'smartphones',
+      'laptops',
+      'fragrances',
+      'skincare',
+      'groceries',
+    ];
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('Add New Product'),
@@ -137,11 +145,6 @@ class AddNewProductScreen extends StatelessWidget {
                   ),
                 ),
                 _buildTextFormField(
-                  'Product ID',
-                  'id',
-                  productController,
-                ),
-                _buildTextFormField(
                   'Product Name',
                   'name',
                   productController,
@@ -151,10 +154,29 @@ class AddNewProductScreen extends StatelessWidget {
                   'description',
                   productController,
                 ),
-                _buildTextFormField(
+                /*_buildTextFormField(
                   'Product Category',
                   'category',
                   productController,
+                ),*/
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: DropdownButtonFormField(
+                    iconSize: 20,
+                    decoration:
+                        const InputDecoration(hintText: 'Product Category'),
+                    items: categories.map((category) {
+                      return DropdownMenuItem(
+                        value: category,
+                        child: Text(category.toUpperCase()),
+                      );
+                    }).toList(),
+                    onChanged: (value) {
+                      productController.newProduct.update(
+                          'category', (_) => value,
+                          ifAbsent: () => value);
+                    },
+                  ),
                 ),
                 const SizedBox(height: 10),
                 _buildSlider(
@@ -202,14 +224,16 @@ class AddNewProductScreen extends StatelessWidget {
                           imageUrl: productController.newProduct['imageUrl'],
                           category: productController.newProduct['category'],
                           isRecommended:
-                              productController.newProduct['isRecommended'],
-                          isPopular: productController.newProduct['isPopular'],
+                              productController.newProduct['isRecommended'] ??
+                                  false,
+                          isPopular:
+                              productController.newProduct['isPopular'] ??
+                                  false,
                           price: productController.newProduct['price'].toInt(),
                           quantity:
                               productController.newProduct['price'].toInt(),
                         ));
-
-                        productController.newProduct.clear();
+                        Navigator.pop(context);
                       }
                     },
                     child: const Text(

@@ -3,7 +3,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:equatable/equatable.dart';
 
 class Product extends Equatable {
-  final String id;
+  final String? id;
   final String name;
   final String description;
   final String imageUrl;
@@ -14,7 +14,7 @@ class Product extends Equatable {
   final bool isPopular;
 
   Product({
-    required this.id,
+    this.id,
     required this.name,
     required this.description,
     required this.imageUrl,
@@ -38,16 +38,17 @@ class Product extends Equatable {
         isPopular,
       ];
 
-  Product copyWith(
-      {String? id,
-      String? name,
-      String? description,
-      String? imageUrl,
-      dynamic price,
-      dynamic quantity,
-      String? category,
-      bool? isRecommended,
-      bool? isPopular}) {
+  Product copyWith({
+    String? id,
+    String? name,
+    String? description,
+    String? imageUrl,
+    dynamic price,
+    dynamic quantity,
+    String? category,
+    bool? isRecommended,
+    bool? isPopular,
+  }) {
     return Product(
       id: id ?? this.id,
       name: name ?? this.name,
@@ -63,7 +64,6 @@ class Product extends Equatable {
 
   Map<String, dynamic> toMap() {
     return {
-      'id': id,
       'name': name,
       'description': description,
       'imageUrl': imageUrl,
